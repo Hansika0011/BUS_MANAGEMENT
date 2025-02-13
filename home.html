@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            min-height: 100vh; /* Full height of the viewport */
+            border: 2px solid #ccc; /* Border around the container */
+            position: relative; /* Add this */
+          
+        }
+
+        .header {
+            background-color: #1b2d43;
+            color:white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-grow: 1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 250px;
+            min-width: 200px;
+            background-color: #27405d;
+            color:black; 
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            position: relative; /* Add this */
+        }
+
+        h1 {
+            text-align: center;
+            color:whitesmoke;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 30px;
+        }
+
+        h2 {
+            color: whitesmoke;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-family: 'Rubik',sans-serif;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value (0.8) to change the opacity */
+    color: white;
+    padding: 60px 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+li:hover {
+    background-color: rgba(211, 211, 211, 0.8); /* Adjust the last value (0.8) to change the opacity */
+}
+
+li a {
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none; /* Remove underline */
+    color: #333;
+    display: block;
+}
+
+
+        .button {
+            display: block;
+            padding: 10px 20px;
+            background-color: #326d6b;
+            color:whitesmoke;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .button:hover {
+            background-color: #153432  ;
+        }
+
+        /* Background image for the home page */
+        .home-background {
+    background-image: url('https://www.sengerio.com/img/blog_en/how-bus-companies-can-reduce-their-emissions/cover-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -30px;
+    bottom: 0px;
+    left:-15px;
+    right:0;
+    z-index: -1
+}
+#driver {
+            background-image: url('https://images.unsplash.com/photo-1620400588895-9b3c4ae9bdb0?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Add your background image URL here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            /* position: absolute; */
+            width:100%;
+            height:100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+        #bus {
+            background-image: url('https://images.unsplash.com/photo-1520105072000-f44fc083e508?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Add your background image URL here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            /* position: absolute; */
+            width:100%;
+            height:100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+        #admin {
+            background-image: url('https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Add your background image URL here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            /* position: absolute; */
+            width:100%;
+            height:100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+        #student {
+            background-image: url('https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?q=80&w=2366&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Add your background image URL here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            /* position: absolute; */
+            width:100%;
+            height:100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+        .background-video {
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.9; /* Adjust the opacity as needed */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Admin Hub</h1>
+        </div>
+        <div class="dashboard"> 
+            <div class="sidebar">
+                <h2>Dashboard</h2>
+
+                <a href="#" class="button button-home" id="home">Home</a>
+                <a href="#driver" class="button" data-section="driver">Driver Details</a>
+                <a href="#bus" class="button" data-section="bus">Bus Details</a>
+                <a href="#admin" class="button" data-section="admin">Admin Details</a>
+                <a href="#student" class="button" data-section="student">Student Details</a>
+                <!-- <video controls width="150px" height="150px" autoplay loop muted class="background-video">
+                    <source src="./bus.mp4" type="video/mp4">                
+                </video> -->
+            </div>
+            <div class="content">
+                <!-- Background image for the home page -->
+                <div class="home-background"></div>
+
+                <div id="driver" style="display: none;">
+                    <h2>Driver Details</h2>
+                    <ul>
+                        <li><a href="view_driver.php">View Drivers</a></li>
+                        <li><a href="add_driver.php">Add Driver</a></li>
+                        <li><a href="delete_driver.php">Delete Driver</a></li>
+                        <li><a href="driver_contact.php">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div id="bus" style="display: none;">
+                    <h2>Bus Details</h2>
+                    <ul>
+                        <li><a href="view_bus.php">View Buses</a></li>
+                        <li><a href="add_bus.php">Add Bus</a></li>
+                        <li><a href="delete_bus.php">Delete Bus</a></li>
+                        <li><a href="view_schedule.php">View schedule</a></li>
+                    </ul>
+                </div>
+
+                <div id="admin" style="display: none;">
+                    <h2>Admin Details</h2>
+                    <ul>
+                        <li><a href="view_admin.php">View Admins</a></li>
+                        <li><a href="add_admin.php">Add Admin</a></li>
+                        <li><a href="delete_admin.php">Delete Admin</a></li>
+                        <li><a href="view_acontact.php">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div id="student" style="display: none;">
+                    <h2>Student Details</h2>
+                    <ul>
+                        <li><a href="view_student.php">View Students</a></li>
+                        <li><a href="add_student.php">Add Student</a></li>
+                        <li><a href="delete_student.php">Delete Student</a></li>
+                        <li><a href="view_payment.php">View Fee Payments</a></li>
+                        <li><a href="add_payment.php">Add Fee Payment</a></li>
+                        <li><a href="view_contact.php">Contact </a></li>
+                    </ul>
+                </div>
+                
+                <!-- <div id="filter" style="display: none;">
+                    <h2>Filter</h2>
+                    <ul>
+                        <li><a href="filter_data.php"></a></li>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll(".button");
+            buttons.forEach(button => {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    const allSections = document.querySelectorAll(".content > div");
+                    allSections.forEach(section => {
+                        section.style.display = "none";
+                    });
+                    targetSection.style.display = "block";
+                });
+            });
+
+            const liLinks = document.querySelectorAll(".content ul li");
+            liLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    const href = this.querySelector("a").getAttribute("href");
+                    window.location.href = href;
+                });
+            });
+
+            const homeButton = document.getElementById("home");
+            homeButton.addEventListener("click", function() {
+                const allSections = document.querySelectorAll(".content > div");
+                allSections.forEach(section => {
+                    section.style.display = "none";
+                });
+                document.querySelector(".home-background").style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
